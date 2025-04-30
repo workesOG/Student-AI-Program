@@ -7,15 +7,20 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Initialize the OpenAI client
-try:
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        print("Warning: OPENAI_API_KEY not found in environment variables.")
-    
-    client = openai.OpenAI(api_key=api_key)
-except Exception as e:
-    print(f"Warning: OpenAI API initialization failed: {e}")
+api_key = os.getenv("OPENAI_API_KEY")
+client = None
+
+if not api_key or api_key.strip() == "":
+    print("Warning: OPENAI_API_KEY is empty or not found in environment variables.")
+    # Still initialize client to None explicitly for clarity
     client = None
+else:
+    try:
+        client = openai.OpenAI(api_key=api_key)
+        print("OpenAI API client initialized successfully.")
+    except Exception as e:
+        print(f"Warning: OpenAI API initialization failed: {e}")
+        client = None
 
 # Base system message that applies to all roles
 BASE_SYSTEM_MESSAGE = "IMPORTANT: All responses must use plain text formatting only. Use '*' or '-' for bullet points, capitalize headers, and use spacing to enhance readability. Do not use Markdown or HTML formatting as the text will be displayed in plain text. This also applies when writing scientific or mathematical equations - format them in plain text without using markdown syntax. Do not use '*' on both sides of a word to make it italic, and don't use '**' to make text bold, it won't work."
@@ -52,7 +57,7 @@ def generate_response(
     - The AI generated response as a string
     """
     if client is None:
-        return "Error: OpenAI API client not initialized. Please check your API key."
+        return "Error: OpenAI API client not initialized. Please add your API key to the .env file and restart the application."
     
     # Get parameters from environment variables if not specified
     if model is None:
@@ -95,8 +100,14 @@ def generate_response(
 # Function to test if the API key is valid
 def test_api_connection() -> bool:
     """Test if the connection to OpenAI API is working"""
+    # If we already know the client is None, return False immediately
     if client is None:
-        print("API client not initialized")
+        print("API client not initialized - API key may be missing or empty")
+        return False
+    
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key or api_key.strip() == "":
+        print("API key is empty or not found")
         return False
     
     try:
