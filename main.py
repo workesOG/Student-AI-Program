@@ -13,7 +13,7 @@ def ensure_env_file_exists():
         print("No .env file found. Creating one with default values...")
         with open(env_path, 'w') as f:
             f.write("OPENAI_API_KEY=\n")
-            f.write("OPENAI_MODEL=gpt-4o-mini\n")
+            f.write("OPENAI_MODEL=o4-mini\n")
             f.write("MAX_TOKENS=5000\n")
         print(".env file created. Please set your OpenAI API key.")
         return True  # Indicates a new file was created
