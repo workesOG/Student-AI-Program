@@ -48,8 +48,7 @@ OPENAI_MODEL=o4-mini
 MAX_TOKENS=5000
 ```
 
-Replace `your_api_key_here` with your actual OpenAI API key.
-You can change both model and max tokens if you feel like it.
+Replace `your_api_key_here` with your actual OpenAI API key. You can change both model and max tokens if you feel like it.
 
 ## Running the Program
 
@@ -58,63 +57,3 @@ After installing dependencies and configuring your API key, run the program:
 ```bash
 python main.py
 ```
-
-The application will start with the Notes Tool active by default.
-
-## How to Use
-
-### Notes Tool
-
-- Click "New Note" to create a new note
-- Enter a title for your note
-- Type your content in the text area
-- Click "Save" to save your note
-- Use "Generate Notes with AI" to get AI assistance with your notes
-  - Enter a topic and provide context for the AI
-  - The AI-generated content will be added to your current note
-
-### Feedback Tool
-
-- Select a subject from the dropdown
-- Select an assignment type from the dropdown
-- Enter your assignment text
-- Click "Get Feedback" to receive AI-generated feedback
-- Use "Export to Notes" to save the feedback as a note
-
-### Starter Tool
-
-- Select a subject from the dropdown
-- Select an assignment type from the dropdown
-- Enter your assignment description
-- Click "Generate Starter" to get AI-generated outline and starter content
-- Use "Export to Notes" to save the starter content as a note
-
-## Notes Storage
-
-All notes are saved as JSON files in your Documents folder under `SAII/Notes/`.
-
-## Subjects and Assignment Types
-
-You can manage subjects and assignment types by clicking the "Manage Subjects" or "Manage Types" buttons in the Feedback or Starter tools.
-
-## Troubleshooting
-
-### API Key Issues
-
-If you see a warning about a missing API key:
-
-1. Make sure you've created a `.env` file with your API key
-2. Check that your API key is valid and not expired
-3. Restart the application after adding or updating your API key
-
-### Connection Issues
-
-If the application can't connect to the OpenAI API:
-
-1. Check your internet connection
-2. Verify your API key is correct
-3. Make sure you haven't exceeded your API usage limits
-
-## License
-
-[MIT License](LICENSE)
