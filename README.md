@@ -1,6 +1,6 @@
 # Student AI Program
 
-A Tkinter-based application for students to generate, manage, and organize notes, get assignment feedback, and create assignment starters using AI assistance powered by OpenAI.
+An exam-project program to act as an interface between students and AI.
 
 ## Features
 
@@ -22,7 +22,14 @@ git clone https://github.com/yourusername/Student-AI-Program.git
 cd Student-AI-Program
 ```
 
-1. Install the required dependencies:
+2. Create and enter virtual environment:
+
+```bash
+python -m venv /.venv
+.\.venv\scripts\activate.bat
+```
+
+3. Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -30,20 +37,19 @@ pip install -r requirements.txt
 
 ## Configuration
 
-Before running the program, you need to set up your OpenAI API key:
-
-1. Get an API key from [OpenAI Platform](https://platform.openai.com/api-keys)
-2. Create a `.env` file in the root directory of the project
+Before running the program, you need to set up your OpenAI API key
+You can get your API key from: Get an API key from [OpenAI Platform](https://platform.openai.com/api-keys)
 
 The program will automatically create a `.env` file for you if one doesn't exist, but you'll need to add your API key to it:
 
 ```env
 OPENAI_API_KEY=your_api_key_here
-OPENAI_MODEL=gpt-4o-mini
+OPENAI_MODEL=o4-mini
 MAX_TOKENS=5000
 ```
 
 Replace `your_api_key_here` with your actual OpenAI API key.
+You can change both model and max tokens if you feel like it.
 
 ## Running the Program
 
