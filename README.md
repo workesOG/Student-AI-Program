@@ -25,7 +25,7 @@ cd Student-AI-Program
 2. Create and enter virtual environment:
 
 ```bash
-python -m venv /.venv
+python -m venv .venv
 .\.venv\scripts\activate.bat
 ```
 
